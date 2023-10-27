@@ -1,0 +1,13 @@
+<div>
+  Jogo do dia: <b><%= Game.last.name %></b>
+</div>
+
+<div class="mt-10">
+  Jogos anteriores:
+
+  <ul class="list-disc">
+    <% Game.all.each do |game| %>
+      <li class="ml-5"><%= "#{game.name} (#{game.created_at.to_formatted_s(:long_ordinal)})" %></li>
+    <% end %>
+  </ul>
+</div>
