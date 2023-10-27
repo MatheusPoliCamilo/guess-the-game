@@ -1,13 +1,15 @@
 <turbo-frame id="guesses">
   <% @player_game.guesses.order(similarity: :desc).each do |guess| %>
-    <div class="mt-5">
-      <%= guess.name %>
+    <div class="mt-5 relative">
       <%= tag.progress(
-        class: "w-56",
+        class: "w-full h-12 absolute top-0 left-0",
         value: guess.similarity,
         max: 100
       ) %>
-      <%= guess.similarity %>
+      <div class="flex justify-between relative text-2xl p-2">
+        <p><%= guess.name %></p>
+        <p><%= guess.similarity %></p>
+      </div>
     <div>
   <% end %>
 </turbo-frame>

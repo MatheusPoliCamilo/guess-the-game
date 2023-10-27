@@ -16,7 +16,7 @@
   <% console %>
 <% end %>
 
-<div class="mt-10">
+<div class="text-center mt-10 m-auto">
   <%= tag.form(
     action: guess_path,
     method: "get",
@@ -26,9 +26,11 @@
       action: "turbo:submit-end->form#clearInput"
     }
   ) do %>
-    <label for="name">Nome do jogo:</label>
-    <input type="text" name="name" id="name" placeholder="digite um jogo" required data-form-target="input" />
-    <button type="submit" data-turbo-submits-with="Comparando...">adivinhar</button>
+    <label for="name"><b>GUESS THE GAME</b></label>
+    <fieldset class="mt-2">
+      <input class="w-80" type="text" name="name" id="name" placeholder="Digite um jogo" required data-form-target="input" />
+      <button class="ml-2" type="submit" data-turbo-submits-with="Comparando...">Enviar</button>
+    </fieldset>
   <% end %>
 
   <turbo-frame id="guesses">
