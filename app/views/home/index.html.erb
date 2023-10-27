@@ -1,25 +1,29 @@
 <% if Rails.env.development? %>
-<div>
-  <p>Jogo do dia: <b><%= @games.last.name %></b></p>
-</div>
+  <div>
+    <p>Jogo do dia: <b><%= @current_game.name %></b></p>
+  </div>
 
-<div class="mt-10">
-  Jogos anteriores:
+  <div class="mt-10">
+    Jogos anteriores:
 
-  <ul class="list-disc">
-    <% @games.order(created_at: :desc).each do |game| %>
-      <li class="ml-5"><%= "#{game.name} (#{game.created_at.to_formatted_s(:long_ordinal)})" %></li>
-    <% end %>
-  </ul>
-</div>
+    <ul class="list-disc">
+      <% @games.order(created_at: :desc).each do |game| %>
+        <li class="ml-5"><%= "#{game.name} (#{game.created_at.to_formatted_s(:long_ordinal)})" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <% console %>
 <% end %>
 
 <div class="mt-10">
   <%= tag.form(action: guess_path, method: "get", data: { turbo_frame: "guesses"}) do %>
     <label for="name">Nome do jogo:</label>
-    <input type="text" name="name" id="name" placeholder="digite um jogo">
+    <input type="text" name="name" id="name" placeholder="digite um jogo" required>
     <button type="submit" data-turbo-submits-with="Comparando...">adivinhar</button>
   <% end %>
 
-  <turbo-frame id="guesses"></turbo-frame>
+  <turbo-frame id="guesses">
+    <%= render "guesses/show", locals: { player_game: @player_game } %>
+  </turbo-frame>
 </div>

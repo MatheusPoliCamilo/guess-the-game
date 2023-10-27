@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
+  has_many :player_games, dependent: :destroy
+
   def self.today
     Game.create!(name: Game.get_name)
   end

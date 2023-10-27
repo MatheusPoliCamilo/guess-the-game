@@ -1,0 +1,13 @@
+<turbo-frame id="guesses">
+  <% @player_game.guesses.order(similarity: :desc).each do |guess| %>
+    <div class="mt-5">
+      <%= guess.name %>
+      <%= tag.progress(
+        class: "w-56",
+        value: guess.similarity,
+        max: 100
+      ) %>
+      <%= guess.similarity %>
+    <div>
+  <% end %>
+</turbo-frame>

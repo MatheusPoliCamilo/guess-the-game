@@ -1,9 +1,0 @@
-<turbo-frame id="guesses">
-  <%= @name %>
-  <%= tag.progress(
-    class: "w-56",
-    value: @similarity_percentage.to_i,
-    max: 100
-  ) %>
-  <%= @similarity_percentage %>
-<turbo-frame>
