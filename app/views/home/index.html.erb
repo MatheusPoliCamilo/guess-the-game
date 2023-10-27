@@ -1,3 +1,4 @@
+<% if Rails.env.development? %>
 <div>
   <p>Jogo do dia: <b><%= @games.last.name %></b></p>
 </div>
@@ -10,4 +11,15 @@
       <li class="ml-5"><%= "#{game.name} (#{game.created_at.to_formatted_s(:long_ordinal)})" %></li>
     <% end %>
   </ul>
+</div>
+<% end %>
+
+<div class="mt-10">
+  <%= tag.form(action: guess_path, method: "get", data: { turbo_frame: "guesses"}) do %>
+    <label for="name">Nome do jogo:</label>
+    <input type="text" name="name" id="name" placeholder="digite um jogo">
+    <button type="submit" data-turbo-submits-with="Comparando...">adivinhar</button>
+  <% end %>
+
+  <turbo-frame id="guesses"></turbo-frame>
 </div>
