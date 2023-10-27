@@ -1,9 +1,9 @@
 class Game < ApplicationRecord
   def self.today
-    Game.create!(name:)
+    Game.create!(name: Game.get_name)
   end
 
-  def name
+  def self.get_name
     OpenAI::Client.new.chat(
       parameters: {
         model: "gpt-4",
