@@ -36,3 +36,7 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Ignore Fly.io SSH files
+ssh
+ssh-cert.pub
