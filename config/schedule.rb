@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: '10:15 am' do
+every 1.minute do
   runner "Game.today"
 end
