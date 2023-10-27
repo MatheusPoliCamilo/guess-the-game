@@ -62,8 +62,6 @@ ENV DATABASE_URL="sqlite3:///data/production.sqlite3"
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-RUN ./bin/whenever --write-crontab
-
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 VOLUME /data

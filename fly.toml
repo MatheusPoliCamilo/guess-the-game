@@ -38,7 +38,3 @@ console_command = "/rails/bin/rails console"
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
-
-[processes]
-  app = ""
-  cron = "cron -f"

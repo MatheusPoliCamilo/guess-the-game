@@ -38,8 +38,6 @@ gem "tailwindcss-rails"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
-gem "whenever", "~> 1.0"
-
 gem "ruby-openai", "~> 5.1"
 
 group :development, :test do
