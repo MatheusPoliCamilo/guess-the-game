@@ -17,9 +17,17 @@
 <% end %>
 
 <div class="mt-10">
-  <%= tag.form(action: guess_path, method: "get", data: { turbo_frame: "guesses"}) do %>
+  <%= tag.form(
+    action: guess_path,
+    method: "get",
+    data: {
+      turbo_frame: "guesses",
+      controller: "form",
+      action: "turbo:submit-end->form#clearInput"
+    }
+  ) do %>
     <label for="name">Nome do jogo:</label>
-    <input type="text" name="name" id="name" placeholder="digite um jogo" required>
+    <input type="text" name="name" id="name" placeholder="digite um jogo" required data-form-target="input" />
     <button type="submit" data-turbo-submits-with="Comparando...">adivinhar</button>
   <% end %>
 
